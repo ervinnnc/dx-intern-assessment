@@ -1,5 +1,4 @@
-**Task 1**
----
+# Task 1
 
 The code had both logical and syntax issues. Firstly, the buttons and corresponding `onclick` actions were not matched properly;
 
@@ -81,4 +80,9 @@ In the provided code, the logic only reduced the JavaScript variable of `counter
 
 ---
 
-**End.** Attempted and written by Ervin Chai.
+**End.** Attempted and written by Ervin Chai.  
+  
+  
+  
+  
+# Task 2
