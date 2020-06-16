@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <title>Digi-X Assessment</title>
+</head>
+<body>
+    <div class='container' style = 'max-width: 80%;'>
+        <div class='row' style='align-items: center; justify-content: center;'>
+            <h1>Weight Converter App</h1>
+        </div>
+        <div class='row d-flex justify-content-center flex-grow-1' style='padding: 50px'>
+            <div class="col d-flex justify-content-center align-items-center">
+                <input type="text" id="weightInput" placeholder="Weight"/>
+                <span> kg</span>
+            </div>
+        </div>
+        <div class = 'row d-flex justify-content-center'>
+            <div>
+                <button type='button' class='btn btn-primary btn-block' id='resetBtn' onclick='convert()'> Convert </button>
+                <button type='button' class='btn btn-primary btn-block' id='resetBtn' onclick='reset()'> Reset </button>
+            </div>
+        </div>
+        <div class = 'row d-flex justify-content-center' style="margin-top: 70px;">
+            <div style="text-align: center; display: none;" id="resultsDisplay">
+                The weight of <span id="weightKg"></span> kg converted is:<br/>
+                <b><span id="weightLbs">110</span> lbs (pounds)<br/>
+                <span id="weightMg">123</span> mg (milligrams)</b>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function convert() {
+        let input = parseFloat(document.getElementById("weightInput").value);
+
+        if (Number.isNaN(input)) {
+            alert("Please enter a valid input! Enter a whole number or a decimal.");
+            return;
+        }
+
+        let kg = input;
+        let lbs = kg * 2.205;
+        let mg = kg * 1000000;
+
+        document.getElementById("weightKg").innerHTML = kg;
+        document.getElementById("weightLbs").innerHTML = lbs;
+        document.getElementById("weightMg").innerHTML = mg;
+
+        document.getElementById("resultsDisplay").style.display = "block";
+    }
+
+    function reset(){
+        document.getElementById("weightInput").value = "";
+        document.getElementById("resultsDisplay").style.display = "none";
+    }
+
+</script>
+</html>

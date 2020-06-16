@@ -86,3 +86,46 @@ In the provided code, the logic only reduced the JavaScript variable of `counter
   
   
 # Task 2
+
+There are a few simple components, one text field for the input of weight in KG, ``id="weightInput"``. A button that does the conversion, ``onclick="convert()"`` and a button that resets the form, ``onclick="reset()"``. There is also a results section which displays the results when the convert button is clicked, and disappears when the reset button is clicked, this div has ``id="resultsDisplay"`` and default style ``style="display: none;``.
+
+convert() function
+---
+Reads in the value that is present in the text box; and parses into a float (decimal)
+```
+let input = parseFloat(document.getElementById("weightInput").value);
+```
+Checks if the value is NaN. If it is a NaN, that means the input is invalid *(parseFloat returns NaN if a non-numeric string is provided)*.
+```
+if (Number.isNaN(input)) {
+	alert("Please enter a valid input! Enter a whole number or a decimal.");
+	return;
+}
+```
+
+If input is valid, then do the calculations;
+```
+let  kg = input;
+let  lbs = kg * 2.205;
+let  mg = kg * 1000000;
+```
+Finally, assign the calculated values to the innerHTML and show the div;
+```
+document.getElementById("weightKg").innerHTML = kg;
+document.getElementById("weightLbs").innerHTML = lbs;
+document.getElementById("weightMg").innerHTML = mg;
+
+document.getElementById("resultsDisplay").style.display = "block";
+```
+
+
+reset() function
+---
+Resets the value of the text field and hides the results div;
+```
+document.getElementById("weightInput").value = "";
+document.getElementById("resultsDisplay").style.display = "none";
+```
+
+---
+**End.** Attempted and written by Ervin Chai.
